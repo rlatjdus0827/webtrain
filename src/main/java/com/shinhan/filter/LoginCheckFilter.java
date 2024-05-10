@@ -21,7 +21,7 @@ import com.shinhan.dto.TrainDTO;
 /**
  * Servlet Filter implementation class LoginCheckFilter
  */
-@WebFilter("*.do")
+//@WebFilter("*.do")
 public class LoginCheckFilter extends HttpFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {

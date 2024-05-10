@@ -1,11 +1,11 @@
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
 
-let container = document.getElementById('container')
+signUpButton.addEventListener('click', () => {
+  container.classList.add("right-panel-active");
+});
 
-toggle = () => {
-  container.classList.toggle('sign-in')
-  container.classList.toggle('sign-up')
-}
-
-setTimeout(() => {
-  container.classList.add('sign-in')
-}, 200)
+signInButton.addEventListener('click', () => {
+  container.classList.remove("right-panel-active");
+});

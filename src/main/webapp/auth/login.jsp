@@ -8,9 +8,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-<title>Login Page</title>
 <script>
 function setFormAction() {
     var selectedValue = document.querySelector('input[name="selection"]:checked').value;
@@ -29,46 +26,59 @@ function setFormAction2(){
 	}
 }
 
-function showSignUpForm() {
-    document.getElementById("signUpForm").style.display = "block";
-}
 </script>
 
+
+<title>Sign Page</title>
+
+<link rel="stylesheet" href="/webtrain/auth/login.css">
 </head>
 <body>
 <!-- /webtrain ${pageContext.request.servletContext.contextPath} -->
-
-<div class="container mt-3">
-  <h2>Login form</h2>
-  	<input type="radio" name="selection" value="mem" onclick="setFormAction()"> 회원 
-	<input type="radio" name="selection" value="train" onclick="setFormAction()"> 강사 
-	<form id="loginForm" action="" method="post">
-		<div class="mb-3 mt-3">
-      	<label for="id">ID : </label>
-      	<input type="text" class="form-control" id="id" name="id" >
-    	</div>
-    	<div class="mb-3 mt-3">
-      	<label for="pwd">Password : </label>
-      	<input type="text" class="form-control" id="pwd" name="pwd" >
-    	</div>
-    	<div class="form-check mb-3">
-      	<label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember"> Login 정보 저장
-      	</label>
-    	</div>
-    	<button type="submit" class="btn btn-dark">Login</button>
-	</form>
-	
+<h2>✿ SY Pilates Reservation ✿</h2>
 <hr>
-<button onclick="showSignUpForm()" class="btn btn-dark">회원가입 (회원/강사 선택)</button>
-<form id="signUpForm" action="" style="display: none;">
-    <input type="radio" name="signselect" value="mem" onclick="setFormAction2()"> 회원 
-	<input type="radio" name="signselect" value="train" onclick="setFormAction2()"> 강사 
-	
-	<input type="submit" value="회원가입 페이지로 이동" class="btn btn-dark">
-</form>
+<div class="container" id="container">
+  <div class="form-container sign-up-container">
+    <form  id="signUpForm" action="">
+      <h1>회원가입</h1>
+      <span>가입 유형을 선택해주세요</span>
+        <label for="signmem" style="margin: 5px !important; "><input type="radio"  name="signselect" id="signmem" value="mem" onclick="setFormAction2()" ><span style="font-size: 20px !important; color: #5c5c5c;">Member</span></label>
+		
+		<label for="signtrain" style="margin: 5px !important; "><input type="radio" name="signselect" id="signtrain" value="train" onclick="setFormAction2()"><span style="font-size: 20px !important; color: #5c5c5c;">Trainer</span></label>
+      	
+      <button type="submit">회원가입하기</button>
+    </form>
+  </div>
+  <div class="form-container sign-in-container">
+    <form  id="loginForm" action="" method="post">
+      <h1>로그인</h1>
+      <span>정보를 입력해주세요</span>
+      <label for="mem" style="margin: 5px !important; "><input type="radio" name="selection" id="mem" value="mem" onclick="setFormAction()" ><span style="font-size: 20px !important; color: #5c5c5c;">Member</span></label> 
+	  <label for="train" style="margin: 5px !important; "><input type="radio" name="selection" id="train" value="train" onclick="setFormAction()"><span style="font-size: 20px !important; color: #5c5c5c;">Trainer</span></label>
+      
+      <input type="text" placeholder="ID" id="id" name="id" />
+      <input type="password" placeholder="Password" id="pwd" name="pwd"  />
+      <button type="submit">로그인하기</button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Welcome Back!</h1>
+        <p>To keep connected with us please login with your personal info</p>
+        <button class="ghost" id="signIn">로그인</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Hello, Friend!</h1>
+        <p>Enter your personal details and start journey with us</p>
+        <button class="ghost" id="signUp">회원가입</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
+<script src="/webtrain/auth/login.js"></script>
 </body>
 </html>
  

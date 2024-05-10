@@ -40,6 +40,8 @@ public class TrainInsertServlet extends HttpServlet {
 			int result = service.trainInsert(trn);
 			System.out.println(result+"건 입력(insert)");
 			request.setAttribute("message", "회원가입 성공");
+			response.sendRedirect("trainlogin");
+			return;
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
 		rd.forward(request, response);

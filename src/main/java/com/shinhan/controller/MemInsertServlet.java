@@ -43,9 +43,14 @@ public class MemInsertServlet extends HttpServlet {
 			request.setAttribute("message", "회원가입 성공");
 //			response.sendRedirect("memlogin.do");
 //			return;
+//			String script = "<script>alert('회원가입이 완료되었습니다.');</script>";
+//		    request.setAttribute("script", script);
+		    response.sendRedirect("memlogin");
+		    return;
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("result.jsp");
 		rd.forward(request, response);
+		//response.sendRedirect("../auth/login.jsp");
 	}
 	private MemDTO makeMem(HttpServletRequest request) {
 //		Enumeration<String> colnames = request.getParameterNames();
